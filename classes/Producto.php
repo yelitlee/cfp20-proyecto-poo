@@ -205,16 +205,86 @@
 
         public function getColor(){
           $color= (new Color())->get_x_id($this->id_colores);
-          $nombre = $color->getNombre_completo();
+          $nombre = $color->getNombre();
           return $nombre;
         }
 
-          public function nombre_completo(){
-            return $this->getCatalogo();
-          }
+        
           
 
        
+
+        /**
+         * Get the value of id
+         */ 
+        public function getId()
+        {
+                return $this->id;
+        }
+
+        /**
+         * Get the value of nombre
+         */ 
+        public function getNombre()
+        {
+                return $this->nombre;
+        }
+
+        /**
+         * Get the value of titulo
+         */ 
+        public function getTitulo()
+        {
+                return $this->titulo;
+        }
+
+        /**
+         * Get the value of descripcion
+         */ 
+        public function getDescripcion()
+        {
+                return $this->descripcion;
+        }
+
+        /**
+         * Get the value of stock
+         */ 
+        public function getStock()
+        {
+                return $this->stock;
+        }
+
+        /**
+         * Get the value of precio
+         */ 
+        public function getPrecio()
+        {
+                return $this->precio;
+        }
+
+        /**
+         * Get the value of imagen
+         */ 
+        public function getImagen()
+        {
+                return $this->imagen;
+        }
+
+        /**
+         * Get the value of id_catalogo
+         */ 
+        public function getId_catalogo()
+        {
+                return $this->id_catalogo;
+        }
+
+        /**
+         * Get the value of id_colores
+         */ 
+        public function getId_colores()
+        {
+                return $this->id_colores;
+        }
     }
 
 

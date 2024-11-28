@@ -1,6 +1,8 @@
 <?php
 
-require_once "libraries/funciones.php";
+
+require_once "functions/autoload.php";
+
 
 $secciones_validas = [
      "home" => [
@@ -77,13 +79,13 @@ $secciones_validas = [
           <a class="nav-link" href="index.php?sec=nosotros">Nosotros</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.php?sec=mascotas&masc=perro">Perros</a>
+          <a class="nav-link" href="index.php?sec=mascotas&masc=2">Perros</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="index.php?sec=mascotas&masc=gato">Gatos</a>
+        <a class="nav-link" href="index.php?sec=mascotas&masc=1">Gatos</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="index.php?sec=mascotas&masc=hamsters">hamsters</a>
+        <a class="nav-link" href="index.php?sec=mascotas&masc=3">hamsters</a>
         </li>
         <li class="nav-item">
         <a class="nav-link" href="index.php?sec=contacto">Contacto</a>

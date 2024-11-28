@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-11-2024 a las 21:04:20
+-- Tiempo de generación: 28-11-2024 a las 18:26:27
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -85,7 +85,7 @@ CREATE TABLE `productos` (
   `stock` varchar(50) NOT NULL,
   `precio` decimal(10,0) NOT NULL,
   `imagen` varchar(50) NOT NULL,
-  `id_catalago` int(11) NOT NULL,
+  `id_catalogo` int(11) NOT NULL,
   `id_colores` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -93,7 +93,7 @@ CREATE TABLE `productos` (
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id`, `nombre`, `titulo`, `descripcion`, `stock`, `precio`, `imagen`, `id_catalago`, `id_colores`) VALUES
+INSERT INTO `productos` (`id`, `nombre`, `titulo`, `descripcion`, `stock`, `precio`, `imagen`, `id_catalogo`, `id_colores`) VALUES
 (1, 'pechera', 'Arnes Y Correa Import M Gatos Conejos Huron Perros Mascotas', 'Algunos gatos aman caminar con sus dueños. Nuestros sets para ello consisten en arneses y correas para mascotas. Así las mascotas de interiores podrán disfrutar del aire fresco y explorar los alrededo', 'disponible', 15990, 'gato1.webp', 1, 1),
 (2, 'juguete', 'Juguete Interactivo Tornado Perros Gatos', 'La máxima diversión para su gato recogida en este juguete con forma de carrusel. La base es un circuito circular con una pequeña bola que, gracias a su led interno activado por el movimiento, emite un', 'disponible', 89300, 'gato2.webp', 1, 2),
 (3, 'Litera', 'Litera Higienica Trixie Maro Esquinera Gatos\r\n\r\n           ', 'En cuanto a las bandejas higiénicas, cada gato tiene sus propios gustos. Por ello, tenemos nuestras bandejas higiénicas en diferentes versiones: abiertas, con borde, con cubierta y tapa, con o sin sis', 'disponible', 60700, 'gato3.webp', 1, 3),
@@ -129,7 +129,7 @@ ALTER TABLE `colores`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_catalago` (`id_catalago`),
+  ADD KEY `fk_catalago` (`id_catalogo`),
   ADD KEY `fk_colores` (`id_colores`);
 
 --
@@ -162,7 +162,7 @@ ALTER TABLE `productos`
 -- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`
-  ADD CONSTRAINT `fk_catalago` FOREIGN KEY (`id_catalago`) REFERENCES `catalogo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_catalago` FOREIGN KEY (`id_catalogo`) REFERENCES `catalogo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_colores` FOREIGN KEY (`id_colores`) REFERENCES `colores` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 

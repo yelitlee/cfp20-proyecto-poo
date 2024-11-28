@@ -1,29 +1,29 @@
 <?php
-require_once "libraries/productos.php";
 
-$id = $_GET['id'] ?? FALSE;
+    $id = $_GET['id'] ?? FALSE;
 
-$masc = producto_x_id($id);
+    $miObjetoProducto = new Producto();
+    $masc = $miObjetoProducto->producto_x_id($id);
 
 ?>
 
 <div class="row">
     <?php if (isset($masc)) { ?>
-        <h1 class="text-center my-5"><?= $masc['articulo'] ?></h1>
+        <h1 class="text-center my-5"><?= $masc->getNombre() ?></h1>
         <div class="col">
             <div class="card mb-5">
                 <div class="row g-0">
                     <div class="col-5">
-                        <img class="img-fluid rounded-start" src="img/mascotas/<?= $masc['imagens'] ?>" alt="<?= $masc['mascota'] ?>">
+                        <img class="img-fluid rounded-start" src="img/mascotas/<?= $masc->getImagen() ?>" alt="">
                     </div>
                     <div class="col-7 d-flex flex-column p-3 ">
                         <div class="card-body flex-grow-0">
-                            <h2 class="card-title fs-2 mb-4"><?= $masc['titulo'] ?></h2>
-                            <p class="card-text"><?= $masc['descripcion'] ?></p>
+                            <h2 class="card-title fs-2 mb-4"><?= $masc->getTitulo() ?></h2>
+                            <p class="card-text"><?= $masc->getDescripcion() ?></p>
                         </div>
                         <ul class="list-group ">
-                            <li class="list-group-item">color: <?= $masc['color'] ?></li>
-                            <li class="list-group-item">stock: <?= $masc['stock'] ?></li>
+                            <li class="list-group-item">color: <?= $masc->getColor() ?></li>
+                            <li class="list-group-item">stock: <?= $masc->getStock() ?></li>
                         </ul>
 
 
@@ -40,7 +40,7 @@ $masc = producto_x_id($id);
                                 </div>
 
                                 <div class="card-body">
-                                    <p class="fs-3 mb-3 fw-bold text-danger text-center">$<?= $masc['precio'] ?></p>
+                                    <p class="fs-3 mb-3 fw-bold text-danger text-center">$<?= $masc->getPrecio()?></p>
                                     <a href="#" class="btn btn-danger w-100 fw-bold">COMPRAR</a>
                                 </div>
 
