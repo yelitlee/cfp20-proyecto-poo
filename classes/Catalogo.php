@@ -124,5 +124,6 @@ class Catalogo
     {
         return $this->nombre;
     }
+
 }
 
