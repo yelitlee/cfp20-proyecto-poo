@@ -1,8 +1,9 @@
 <?php
 
- require_once "libraries/productos.php";
-  
-$productos = catalago_todas_mascotas();
+    
+$miProductoCatalogo = new Producto();
+
+$productos = $miProductoCatalogo->catalogo_completo();
 
 
 ?>
@@ -16,18 +17,18 @@ $productos = catalago_todas_mascotas();
     
         <div class="col-3 "  >
         <div class="card mb-3">
-            <img src="img/mascotas/<?=$masc['imagens'] ?>" class="card-img-top" alt="<?=$masc['mascota'] ?>" style="max-height: 350px; overflow: hidden;">
+            <img src="img/mascotas/<?=$masc->getImagen() ?>" class="card-img-top" alt="" style="max-height: 350px; overflow: hidden;">
             <div class="card-body"  style="height:125px; overflow: hidden;" >
-                <h5 class="card-title"><?=$masc['titulo'] ?></h5>
-                <p class="card-text"><?= recortar_palabras($masc['descripcion'], 6) ?></p>
+                <h5 class="card-title"><?=$masc->getTitulo()?></h5>
+                <p class="card-text"><?= $masc->getDescripcion() ?></p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">color: <?=$masc['color'] ?></li>
-                <li class="list-group-item">stock: <?=$masc['stock'] ?></li>
+                <li class="list-group-item">color: <?=$masc->getColor() ?></li>
+                <li class="list-group-item">stock: <?=$masc->getStock() ?></li>
             </ul>
             <div class="card-body">
-                <p class="fs-3 mb-3 fw-bold text-danger text-center">$<?=$masc['precio'] ?></p>
-                <a href="index.php?sec=producto&id=<?= $masc['id'] ?>" class="btn btn-danger w-100 fw-bold" >VER MÁS</a>
+                <p class="fs-3 mb-3 fw-bold text-danger text-center">$<?=$masc->getPrecio()?></p>
+                <a href="index.php?sec=producto&id=<?= $masc->getId() ?>" class="btn btn-danger w-100 fw-bold" >VER MÁS</a>
             </div>
 
         </div>

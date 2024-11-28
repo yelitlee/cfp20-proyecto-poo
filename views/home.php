@@ -1,5 +1,5 @@
 <?php
-require_once "libraries/productos.php";
+
 
 
 ?>
@@ -51,21 +51,21 @@ require_once "libraries/productos.php";
 <h1 class="text-center mb-4 ">Categorias</h1>
 
 <div class="row">
-    <a href="index.php?sec=mascotas&masc=perro"  class="col-4">
+    <a href="index.php?sec=mascotas&masc=2"  class="col-4">
         <div class="card" style="width: 18rem;">
             <img height="300px" src="img/perro.jpg" class="card-img-top" alt="...">
          
         </div>
     </a>
 
-    <a href="index.php?sec=mascotas&masc=gato"  class="col-4">
+    <a href="index.php?sec=mascotas&masc=1"  class="col-4">
         <div class="card" style="width: 18rem;">
             <img height="300px" src="img/gato.jpg" class="card-img-top" alt="...">
         
         </div>
     </a>
 
-    <a href="index.php?sec=mascotas&masc=hamsters" class="col-4">
+    <a href="index.php?sec=mascotas&masc=3" class="col-4">
         <div class="card" style="width: 18rem;">
             <img src="img/hamsters.jpg" class="card-img-top" alt="...">
          

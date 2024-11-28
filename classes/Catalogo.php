@@ -15,7 +15,7 @@ class Catalogo
 
         $conexion = (new Conexion())->getConexion();
 
-        $query = "SELECT * FROM catalogos";
+        $query = "SELECT * FROM catalogo";
 
         $PDOStatment = $conexion->prepare($query);
 
@@ -34,7 +34,7 @@ class Catalogo
 
         $conexion = (new Conexion())->getConexion();
 
-        $query = "SELECT * FROM catalogos WHERE id = $id";
+        $query = "SELECT * FROM catalogo WHERE id = $id";
 
         $PDOStatment = $conexion->prepare($query);
 
