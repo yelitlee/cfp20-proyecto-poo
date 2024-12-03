@@ -21,7 +21,7 @@
 
        $conexion = (new Conexion())->getConexion();
 
-       $query = "INSERT INTO productos VALUES(null, :nombre,:titulo,:descripcion,:stock,:precio,:imagen,:id_catalogo,:id_colores,)";
+       $query = "INSERT INTO productos VALUES(null, :nombre,:titulo,:descripcion,:stock,:precio,:imagen,:id_catalogo,:id_colores)";
 
        $PDOStatment = $conexion->prepare($query);
 
@@ -34,7 +34,7 @@
                'precio' => $precio,
                'imagen' => $imagen,
                'id_catalogo' => $id_catalogo,
-               'id_colores' => $id_colores,
+               'id_colores' => $id_colores
               
          ]
        );
@@ -198,7 +198,7 @@
        //Traer los nombres de cada clase sin usar JOIN (utilizar los metodos)
 
        public function getCatalogo(){
-          $catalogo = (new Catalogo())->get_x_id($this->id_catalogo);
+          $catalogo = (new Catalogo())->catalogo_completo($this->id_catalogo);
           $nombre = $catalogo->getNombre();
           return $nombre;
         }

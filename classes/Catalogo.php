@@ -28,7 +28,7 @@ class Catalogo
     }
 
     // devuelve datos de uno  en particular 
-    public function get_x_id(int $id)
+    public function catalogo_completo(int $id)
     {
 
 
@@ -72,8 +72,7 @@ class Catalogo
 
         $conexion = (new Conexion())->getConexion();
 
-        $query = "INSERT INTO personajes(id,nombre,alias,biografia,creador,primera_aparicion,imagen) 
-                     VALUES (NULL,:nombre,:alias,:biografia,:creador, :primera_aparicion,:imagen )";
+        $query = "INSERT INTO catalogo VALUES(null, :nombre)";
 
         $PDOStatment = $conexion->prepare($query);
 
@@ -85,14 +84,14 @@ class Catalogo
         );
     }
 
-    /* metodo para editar un personaje  */
+    /* metodo para editar catalogo  */
 
     public function edit($nombre, $id)
     {
 
         $conexion = (new Conexion())->getConexion();
 
-        $query = "UPDATE personajes SET nombre = :nombre, alias = :alias, biografia = :biografia, creador = :creador, primera_aparicion = :primera_aparicion WHERE id = :id";
+        $query = "UPDATE catalogo SET nombre = :nombre WHERE id = :id";
 
         $PDOStatment = $conexion->prepare($query);
 
@@ -105,6 +104,18 @@ class Catalogo
         );
     }
 
+
+
+    
+  public function delete() {
+    $conexion = (new Conexion())->getConexion();
+
+    $query = "DELETE FROM catalogo WHERE id  = ?";
+
+    $PDOStatment = $conexion->prepare($query);
+
+    $PDOStatment->execute([$this->id]);
+}
 
 
 

@@ -21,26 +21,26 @@ die(); */
 try {
 
 
-    $producto = new Producto();
+    $productos = new Producto();
 
     if(!empty($fileData['tmp_name'])){
         if (!empty($postData['imagen_og'])) {
-            (new Imagen())->borrarImagen(__DIR__."/../../img/productos/". $postData['imagen_og']);
+            (new Imagen())->borrarImagen(__DIR__."/../../img/mascotas/". $postData['imagen_og']);
         }
 
-        $imagen = (new Imagen())->subirImagen(__DIR__."/../../img/productos", $fileData);
+        $imagen = (new Imagen())->subirImagen(__DIR__."/../../img/mascotas", $fileData);
 
-        $producto->remplazar_imagen($imagen, $id);
+        $productos->reemplazar_imagen($imagen, $id);
 
     }
 
    
 
-    $productos->edit($postData['nombre'],$postData['titulo'],$postData['descripcion'],$postData['stock'],$postData['precio'],$imagen,$postData['id_catalogo'],$postData['id_colores']);
+    $productos->edit($postData['id'], $postData['nombre'],$postData['titulo'],$postData['descripcion'],$postData['stock'],$postData['precio'],$imagen,$postData['id_catalogo'],$postData['id_colores']);
 
     header("location: ../index.php?sec=admin_productos");
-} catch (\Exception $e) {
-    die("no se puede cargar el producto". $e);
+} catch (\Exception $p) {
+    die("no se puede cargar el producto". $p);
 }
 
 ?>

@@ -10,25 +10,14 @@
         <div class="row mb-5 d-flex align-items-center">
             <form class="row g-3" action="actions/add_catalogo_acc.php" method="POST" enctype="multipart/form-data">
 
-            <div class="col-6 mb-3">
-                <label class="form-label" for="nombre">Titulo</label>
-                <input type="text" class="form-control" name="titulo" id="titulo" required>
-
-            </div>
-
+        
             
             <div class="col-6 mb-3">
                 <label class="form-label" for="nombre">Nombre:</label>
                 <input type="text" class="form-control" name="nombre" id="nombre" required>
 
             </div>
-    
 
-            <div class="col-6 mb-3">
-                <label class="form-label" for="imagen">Imagen:</label>
-                <input type="file" class="form-control" name="imagen" id="imagen">
-
-            </div>
         
           
 

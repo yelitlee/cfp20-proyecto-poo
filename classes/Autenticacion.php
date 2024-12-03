@@ -17,10 +17,12 @@ class Autenticacion {
                 $_SESSION['loggedIn'] = $datosLogin;
                 return TRUE;
             }else{
+                (new Alerta())->add_alerta("danger" , "El password ingresado no es correcto");
                 return FALSE;
             }
             
         }else {
+            (new Alerta())->add_alerta("warning" , "El usuario  ingresado no existe");
             return False;
         }
     }

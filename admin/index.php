@@ -8,33 +8,45 @@ $secciones_validas = [
     "restringido" => FALSE
     ],
      "dashboard" => [
-        "titulo" => "Panel de Control"
+        "titulo" => "Panel de Control",
+        "restringido" => TRUE
         
      ],
      "admin_productos" => [
-        "titulo" => "Administracion de Productos"
+        "titulo" => "Administracion de Productos",
+        "restringido" => TRUE
      ],
      "add_productos" => [
-        "titulo" => "Agregar Productos"
+        "titulo" => "Agregar Productos",
+        "restringido" => TRUE
      ],
      "edit_productos" => [
-        "titulo" => "Editar Productos"
+        "titulo" => "Editar Productos",
+        "restringido" => TRUE
      ],
      "delete_productos" => [
-      "titulo" => "Eliminar Productos"
+      "titulo" => "Eliminar Productos",
+      "restringido" => TRUE
      ],
      "admin_catalogos" => [
-      "titulo" => "administracion de catalogo"
+      "titulo" => "administracion de catalogo",
+      "restringido" => TRUE
      ],
      "add_catalogo" => [
-      "titulo" => "Agregar Catalogo"
-     ]
+      "titulo" => "Agregar Catalogo",
+      "restringido" => TRUE
+     ],
+     "edit_catalogo" => [
+      "titulo" => "Agregar Catalogo",
+      "restringido" => TRUE
+     ],
+     "delete_catalogo" => [
+      "titulo" => "Eliminar Catalogo",
+      "restringido" => TRUE
+    ]
   
     
   ];
-
-
- 
 
 
 
@@ -47,8 +59,15 @@ $secciones_validas = [
       $titulo = "404 - pagina no encontrada";
   }else {
      $vista= $seccion;
+
+     if ($secciones_validas[$seccion]['restringido']) {
+      (new Autenticacion())->verify();
+     }
      $titulo = $secciones_validas[$seccion]['titulo'];
   }
+
+  $userData = $_SESSION['loggedIn'] ?? FALSE;
+
 
 ?>
 
@@ -79,14 +98,22 @@ $secciones_validas = [
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="index.php?sec=dashboard">Dashboard</a>
+          <a class="nav-link <?= $userData ? "" : "d-none" ?>" aria-current="page" href="index.php?sec=dashboard">Dashboard</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="index.php?sec=admin_productos">Admin de Productos</a>
+          <a class="nav-link <?= $userData ? "" : "d-none" ?>" aria-current="page" href="index.php?sec=admin_productos">Admin de Productos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="index.php?sec=admin_catalogos">Admin de Catalogo</a>
+          <a class="nav-link <?= $userData ? "" : "d-none" ?>" aria-current="page" href="index.php?sec=admin_catalogos">Admin de Catalogo</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link <?= $userData ? "d-none" : "" ?>" aria-current="page" href="index.php?sec=login">Login</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link <?= $userData ? "" : "d-none" ?>" aria-current="page" href="actions/auth_logout.php">LogOut</a>
         </li>
  
         

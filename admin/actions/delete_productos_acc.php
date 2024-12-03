@@ -24,8 +24,8 @@ try {
 
 
       header("location: ../index.php?sec=admin_productos");
-} catch (\Exception $e) {
-    die("no se puede eliminar el producto". $e);
+} catch (\Exception $p) {
+    die("no se puede eliminar el producto". $p);
 }
 
 ?>
