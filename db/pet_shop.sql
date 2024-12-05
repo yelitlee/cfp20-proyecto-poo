@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-11-2024 a las 18:26:27
+-- Tiempo de generación: 05-12-2024 a las 18:15:36
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -106,7 +106,33 @@ INSERT INTO `productos` (`id`, `nombre`, `titulo`, `descripcion`, `stock`, `prec
 (12, 'cama', '\"Cama Cucha Relax Trixie Perros\"', '\"Para una pequeña siesta o sueños profundos, te ofrecemos a ti y a tu perro una gran variedad de cojines, camas y mantas, como también canastas o cuevas suaves. Todo en diferentes formas, colores, tam', 'disponible', 46090, 'perro4.webp', 2, 6),
 (13, '\"soga\"', '\"Juguete Pesa De Cuerda Algodon\"', '\"Juguetes de felpa, cuerdas para jugar, pelotas robustas de caucho natural y figuras coloridas hechas de vinilo o de duradero caucho termoplástico, TRIXIE te ofrece todo lo que tu perro necesita para ', 'disponible', 4600, 'perro5.webp', 2, 6),
 (14, 'pelotas', '\"Juguete Pelota Beisbol L Perros\"', '\"Juguete Trixie dental pelota chica. La línea Dental elimina la acumulación de sarro y restos de comida en sus dientes favoreciendo a su salud dental. Los perros sufren estrés al estar solos o encerra', 'disponible', 6000, 'perro6.webp', 2, 6),
-(15, 'Dispenser', '\"Ferplast Pelota Dispensadora de Snacks\"', '\" Un pequeño premio para tu hamsters! Es un juguete de plástico distribuidor de galletas mientras rueda. Tiene un particular mecanismo que permite poner galletas en el interior; jugando y haciendo rod', 'disponible', 10200, 'hamsters5.jpg', 3, 6);
+(15, 'Dispenser', '\"Ferplast Pelota Dispensadora de Snacks\"', '\" Un pequeño premio para tu hamsters! Es un juguete de plástico distribuidor de galletas mientras rueda. Tiene un particular mecanismo que permite poner galletas en el interior; jugando y haciendo rod', 'disponible', 10200, 'hamsters5.jpg', 3, 6),
+(17, 'comedero', 'Comedero Feeding Bowl Ferplast Roedores Hamster Ruso Erizo', 'Podrás encontrar el comedero adecuado para tu pequeña mascota. Tenemos comederos y bebederos en diferentes tamaños, formas, colores y diseños que encajan óptimamente en cada casita de los pequeños ani', 'disponible', 10300, '1733258268.webp', 3, 9),
+(18, 'Tubo Tunel', 'Tubo Tunel Telescopico Jaula Ferplast Roedores Hamster', 'Hecho de plástico transparente, FPI 4806 puede conectarse a otros tubos y hábitats como usted prefiera. Ayudará a su mascota a evitar el aburrimiento y mantener el estado de buena salud.', 'disponible', 16300, '1733258388.webp', 3, 4),
+(19, 'Rueda', 'Juguete Rueda De Metal N1 Hamster Roedores Cobayos Mascotas\r\n           \r\n', 'Con esta rueda de ejercicios, tu mascota se mantendrá en forma La rueda de ejercicio lo mantendrá activo y además en movimiento para que así puedan estar en la mejor condición y saludables.', 'disponible', 16300, 'hamsters4.jpg', 3, 10),
+(20, 'comida', 'Alfalfa En Cubos X 500 Gr Hamster Cobayo Conejo Roedores', 'Alfalfa en cubos prensado natural es de excelente calidad y es un nutritivo alimento para los pequeños roedores de tu casa.', 'disponible', 56900, 'hamsters1.webp', 3, 11),
+(21, 'jaula', 'Jaulas de hámster, roedores, jerbo, ratones', 'Super grandes hábitat y zonas de juego para hámsters, oso de peluche, jerbos y mascotas exóticas, Base de plástico y estructura de malla superior con mayor seguridad, son material no tóxico, seguro pa', 'disponible', 42900, 'hamsters6.jpg', 3, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `email` varchar(70) NOT NULL,
+  `nombre_usuario` varchar(50) NOT NULL,
+  `nombre_completo` varchar(70) NOT NULL,
+  `password` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `email`, `nombre_usuario`, `nombre_completo`, `password`) VALUES
+(1, 'correo@correo.com', 'lee', 'Yelitza', '$2y$10$S0ZrTbFZI1du0FlHjmwyh.FuB5GMqZQGvfNRHehwAb6I59w5UR/v2');
 
 --
 -- Índices para tablas volcadas
@@ -133,6 +159,12 @@ ALTER TABLE `productos`
   ADD KEY `fk_colores` (`id_colores`);
 
 --
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -140,7 +172,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `catalogo`
 --
 ALTER TABLE `catalogo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `colores`
@@ -152,7 +184,13 @@ ALTER TABLE `colores`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
