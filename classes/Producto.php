@@ -44,20 +44,17 @@
 
 
    
-   public function edit($nombre, $titulo, $descripcion, $stock, $precio, $imagen, $id_catalogo, $id_colores,$id)
+   public function edit($nombre, $titulo, $descripcion, $stock, $precio, $id_catalogo, $id_colores,$id)
    {
 
   $conexion = (new Conexion())->getConexion();
 
   $query = "UPDATE productos SET 
-     
-
      nombre = :nombre,
      titulo = :titulo,
      descripcion = :descripcion,
      stock = :stock,
      precio = :precio,
-     imagen = :imagen,
      id_catalogo = :id_catalogo,
      id_colores = :id_colores
       WHERE id = :id
@@ -73,7 +70,6 @@
           'descripcion' => $descripcion,
           'stock' => $stock,
           'precio' => $precio,
-          'imagen' => $imagen,
           'id_catalogo' => $id_catalogo,
           'id_colores' => $id_colores,
          

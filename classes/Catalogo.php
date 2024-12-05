@@ -120,14 +120,7 @@ class Catalogo
 
 
 
-    /**
-     * Get the value of id
-     */ 
-    public function getId()
-    {
-        return $this->id;
-    }
-
+ 
     /**
      * Get the value of nombre
      */ 
@@ -136,4 +129,12 @@ class Catalogo
         return $this->nombre;
     }
 
+
+    /**
+     * Get the value of id
+     */ 
+    public function getId()
+    {
+        return $this->id;
+    }
 }

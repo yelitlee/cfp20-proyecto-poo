@@ -3,8 +3,8 @@
 $id = $_GET['id'] ?? FALSE;
 
 $producto = (new Producto())->producto_x_id($id);
-$catalogo = (new Catalogo())->catalogo_completo($id);
-$colores = (new Color())-> lista_completa();
+$catalogo =( new Catalogo())->lista_completa();
+$colores = (new Color())->lista_completa();
  
 ?>
 
@@ -27,7 +27,7 @@ $colores = (new Color())-> lista_completa();
 
             <div class="col-2 mb-3">
                 <label class="form-label" for="imagen">Imagen actual:</label>
-                <img width="150px" src="../img/productos/<?=$producto->getImagen() ?>" alt="" class="img-fluid">
+                <img width="150px" src="../img/mascotas/<?=$producto->getImagen() ?>" alt="" class="img-fluid">
                 <input type="hidden" class="form-control" name="imagen_og" id="imagen_og" value="<?= $producto->getImagen() ?>">
 
             </div>
@@ -68,7 +68,7 @@ $colores = (new Color())-> lista_completa();
                             <select class="form-select" name="id_catalogo" id="id_catalogo">
                                 <option value="" selected disabled>Elija una opcion</option>
                                 <?php foreach($catalogo as $c){ ?>
-                                        <option value="<?= $c->getId() ?>" <?= $c->getId() == $catalogo->getId_catalogo() ? "selected" : "" ?> ><?= $c->getNombre_completo() ?></option>
+                                        <option value="<?= $c->getId() ?>" <?= $c->getId() == $producto->getId_catalogo() ? "selected" : "" ?> ><?= $c->getNombre()  ?></option>
 
                                 <?php } ?>  
                             </select>
@@ -80,8 +80,8 @@ $colores = (new Color())-> lista_completa();
                             <label class="form-label" for=" id_colores">Colores</label>
                             <select class="form-select" name=" id_colores" id=" id_colores">
                                 <option value="" selected disabled>Elija una opcion</option>
-                                <?php foreach($color as $co){ ?>
-                                        <option value="<?= $co->getId() ?>" <?= $co->getId() == $color->getId_color() ? "selected" : "" ?> ><?= $co->getNombre_completo() ?></option>
+                                <?php foreach($colores as $co){ ?>
+                                        <option value="<?= $co->getId() ?>" <?= $co->getId() == $producto->getId_colores() ? "selected" : "" ?> ><?= $co->getNombre()  ?></option>
 
                                 <?php } ?>  
                             </select>
